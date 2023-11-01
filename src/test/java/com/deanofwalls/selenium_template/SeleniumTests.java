@@ -18,10 +18,18 @@ public class SeleniumTests {
 
     @Test
     public void test() {
+        // Use WebDriverManager to manage ChromeDriver
+        WebDriverManager.firefoxdriver().setup();
 
-        //TESTING GOES HERE
+        // Initialize the WebDriver
+        //phantomjs inclusive driver, supports headless
+        WebDriver driver = new FirefoxDriver();
 
-        } catch(Exception e) {
+        try {
+
+            //TESTING OCCURS HERE
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
 //        finally {
