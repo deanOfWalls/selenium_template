@@ -25,13 +25,17 @@ public class SeleniumTests {
         FirefoxOptions options = new FirefoxOptions();
         options.merge(capabilities);
 
+        // Set the preference to suppress JavaScript warnings and errors
+        options.addPreference("javascript.error.console", "ignore");
+
+
         // Initialize the WebDriver with FirefoxOptions
         WebDriver driver = new FirefoxDriver(options);
 
         try {
             // Your test code here
             // ...
-            // driver.get("https://*");
+            driver.get("https://*");
 
         } catch (Exception e) {
             e.printStackTrace();
