@@ -1,33 +1,34 @@
-package com.deanofwalls.selenium_template;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Test;
-import org.openqa.selenium.By;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-
 
 public class SeleniumTests {
 
     @Test
-    public void test() {
-        // Use WebDriverManager to manage ChromeDriver
+    public void mySeleniumTest() {
+        // Use WebDriverManager to manage FirefoxDriver
         WebDriverManager.firefoxdriver().setup();
 
-        // Initialize the WebDriver
-        //phantomjs inclusive driver, supports headless
-        WebDriver driver = new FirefoxDriver();
+        // Configure DesiredCapabilities to disable JavaScript errors and bypass untrusted SSL certificates
+        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+        capabilities.setCapability("javascriptEnabled", true);
+        capabilities.setCapability("acceptInsecureCerts", true);
+
+        // Initialize FirefoxOptions with DesiredCapabilities
+        FirefoxOptions options = new FirefoxOptions();
+        options.merge(capabilities);
+
+        // Initialize the WebDriver with FirefoxOptions
+        WebDriver driver = new FirefoxDriver(options);
 
         try {
-
-            //TESTING OCCURS HERE
+            // Your test code here
+            // ...
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -36,7 +37,5 @@ public class SeleniumTests {
 //            // Close the WebDriver
 //            driver.quit();
 //        }
-
     }
 }
-
