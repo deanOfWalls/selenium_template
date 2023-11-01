@@ -1,3 +1,5 @@
+package com.deanofwalls.selenium_template;
+
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -29,6 +31,7 @@ public class SeleniumTests {
         try {
             // Your test code here
             // ...
+            // driver.get("https://*");
 
         } catch (Exception e) {
             e.printStackTrace();
